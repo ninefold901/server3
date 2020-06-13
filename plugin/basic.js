@@ -9,6 +9,7 @@ var path = _interopDefault(require('path'));
 var moment = _interopDefault(require('moment'));
 var assert = _interopDefault(require('assert'));
 var sequelize = require('sequelize');
+var modelIndex = _interopDefault(require('../model'));
 var fetch = _interopDefault(require('node-fetch'));
 var axios = _interopDefault(require('axios'));
 
@@ -158,43 +159,6 @@ var config = {
     }
 };
 
-/*eslint-disable no-unused-vars*/
-class Example extends sequelize.Model {
-}
-var example = (sequelize$1) => {
-    Example.init({
-        id: {
-            type: sequelize.DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true,
-        },
-        aa: {
-            type: sequelize.DataTypes.STRING,
-        },
-        bb: {
-            type: sequelize.DataTypes.STRING,
-            field: 'bb_bb',
-        },
-        createdAt: {
-            type: sequelize.DataTypes.TIME,
-            field: 'created_at',
-            defaultValue: new sequelize.Utils.Fn('NOW', []),
-        },
-        updatedAt: {
-            type: sequelize.DataTypes.TIME,
-            field: 'updated_at',
-            defaultValue: new sequelize.Utils.Fn('NOW', []),
-        },
-    }, {
-        sequelize: sequelize$1,
-        modelName: 'script_example',
-    });
-};
-
-var modelIndex = (sequelize) => {
-    example(sequelize);
-};
-
 class Db {
     constructor() {
         this.log = new Log();
@@ -239,7 +203,7 @@ class Db {
     }
 }
 
-class Example$1 {
+class Example {
     constructor() {
         this.log = new Log();
         this.log.write('[plugin]Example loaded.');
@@ -302,7 +266,7 @@ class Req {
 // auto generated //
 const pluginList = {
     db: new Db(),
-    example: new Example$1(),
+    example: new Example(),
     log: new Log(),
     req: new Req(),
     util: new Util(),
