@@ -3,6 +3,7 @@ import {
   serviceType,
   pluginType,
 } from './auto-code'; // auto code位置统一
+import { pluginType as basicPluginType } from '../plugin/basic';
 
 /**
  * TYPE
@@ -14,7 +15,7 @@ type ctxBaseType = {
   response: any;
   config: any;
 };
-export type ctxType = ctxBaseType & pluginType;
+export type ctxType = ctxBaseType & pluginType & basicPluginType;
 
 /**
  * BASE
