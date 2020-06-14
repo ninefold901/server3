@@ -8,6 +8,7 @@ var fs = _interopDefault(require('fs'));
 var path = _interopDefault(require('path'));
 var moment = _interopDefault(require('moment'));
 var assert = _interopDefault(require('assert'));
+var config = _interopDefault(require('../config/config.default'));
 var sequelize = require('sequelize');
 var modelIndex = _interopDefault(require('../model'));
 var fetch = _interopDefault(require('node-fetch'));
@@ -146,18 +147,6 @@ class Util {
         });
     }
 }
-
-var config = {
-    host: '',
-    port: 8111,
-    mysql: {
-        host: 'ip',
-        port: 3306,
-        dbname: '111',
-        username: 'root',
-        password: '111',
-    }
-};
 
 class Db {
     constructor() {
